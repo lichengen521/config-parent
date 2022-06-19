@@ -1,0 +1,30 @@
+# bootstrap 优先级比application的高 所以一般加载一些系统级别的配置
+spring:
+  cloud:
+    config:
+      #配置 config-server的地址
+#      uri: http://localhost:9527
+      #配置获取配置文件的信息
+      name: config
+      #环境名称 可以通过文件名称 + - + profile
+#      profile: dev
+      #远程仓库分支名称
+      label: master
+      #集成eureka 注意 该配置一定要在name、label后面 否则读取不到信息
+      discovery:
+        enabled: true #动态获取config-server的地址
+        service-id: config-server #将要从哪个服务中获取数据
+  rabbitmq:
+    host: 172.31.11.15
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+#指定暴露 config-client的架空刷新端点
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include:
+#          - refresh
