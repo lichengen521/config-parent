@@ -1,0 +1,5 @@
+# Project exclude paths
+/config-consumer/target/
+/config-provider/target/
+/config-server/target/
+/eureka-server-config/target/
